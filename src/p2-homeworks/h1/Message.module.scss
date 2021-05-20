@@ -1,0 +1,40 @@
+.messageWrap {
+  display: flex;
+  width: 500px;
+
+  .ava {
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+    //flex-basis: 20%;
+    align-self: flex-end;
+    border: 1px solid red;
+    background-color: red;
+    border-radius: 100%;
+  }
+
+  .contentWrap {
+    display: flex;
+    max-width: 80%;
+    margin: 10px 10px 10px 0;
+    padding: 5px;
+    border: 1px solid red;
+    border-radius: 10px 10px 10px 0;
+
+    .textWrap {
+      .name {
+        font-weight: bolder;
+        font-size: 17px;
+      }
+
+      .message {
+      }
+
+    }
+    .time {
+      align-self: flex-end;
+      margin-left: 5px;
+      color: #999999;
+    }
+  }
+}
