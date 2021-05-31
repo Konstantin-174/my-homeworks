@@ -42,7 +42,7 @@ export const filterAffairs = (affairs: Array<AffairType>, filter: FilterType): A
 }
 export const deleteAffair = (affairs: Array<AffairType>, _id: number): Array<AffairType> => { // need to fix any
     affairs = affairs.filter(t => t._id != _id)
-    return [...affairs] // need to fix
+    return affairs // need to fix
 }
 
 function HW2() {
@@ -60,6 +60,7 @@ function HW2() {
             {/*should work (должно работать)*/}
             <Affairs
                 data={filteredAffairs}
+                filter={filter}
                 setFilter={setFilter}
                 deleteAffairCallback={deleteAffairCallback}
             />

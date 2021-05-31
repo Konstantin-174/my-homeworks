@@ -1,17 +1,20 @@
 import React from 'react'
 import Affair from './Affair'
-import {AffairType} from './HW2'
+import {AffairType, FilterType} from './HW2'
+import styles from './Affairs.module.scss'
 
 type AffairsPropsType = { // need to fix any
     data: Array<AffairType>
-    setFilter: any
+    filter: FilterType
+    setFilter: (value: FilterType) => void
     deleteAffairCallback: (_id: number) => void
 }
 
 const Affairs: React.FC<AffairsPropsType> = ({
                                                  data,
                                                  setFilter,
-                                                 deleteAffairCallback
+                                                 deleteAffairCallback,
+                                                 filter
                                              }) => {
     const mappedAffairs = data.map((a: AffairType) => (
         <Affair // should work
@@ -22,12 +25,16 @@ const Affairs: React.FC<AffairsPropsType> = ({
     ))
 
     const setAll = () => {
+        setFilter('all')
     } // need to fix
     const setHigh = () => {
+        setFilter('high')
     }
     const setMiddle = () => {
+        setFilter('middle')
     }
     const setLow = () => {
+        setFilter('low')
     }
 
     return (
@@ -35,10 +42,22 @@ const Affairs: React.FC<AffairsPropsType> = ({
 
             {mappedAffairs}
 
-            <button onClick={setAll}>All</button>
-            <button onClick={setHigh}>High</button>
-            <button onClick={setMiddle}>Middle</button>
-            <button onClick={setLow}>Low</button>
+            <button onClick={setAll}
+                    className={filter === 'all' ? styles.active : styles.btn}>
+                All
+            </button>
+            <button onClick={setHigh}
+                    className={filter === 'high' ? styles.active : styles.btn}>
+                High
+            </button>
+            <button onClick={setMiddle}
+                    className={filter === 'middle' ? styles.active : styles.btn}>
+                Middle
+            </button>
+            <button onClick={setLow}
+                    className={filter === 'low' ? styles.active : styles.btn}>
+                Low
+            </button>
         </div>
     )
 }
